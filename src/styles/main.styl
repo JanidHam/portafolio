@@ -1,2 +1,108 @@
 @import './normalize.css'
-@import './reset.css'
+@import './reset'
+
+$white = #FFF
+$colorMenu = #212121
+$menu_border = #c5cad9
+$menu_color = #7b8087
+$menu_item_bckg = #f2f3f7
+$menu_item_blue = #0f97f9
+
+$transitionTime = 0.3s
+
+
+body
+	font-family 'Lato'
+	font-size 16px
+
+.header
+	background-color $white
+	color $colorMenu
+	height 64px
+	position fixed
+	top 0
+	left 0
+	width 100%
+	z-index 10
+	display flex
+	flex-direction column
+	
+	&-mobile
+		display flex
+		justify-content space-between
+		
+	&-logo
+		order 1
+		margin-left 1rem
+		padding 0
+		line-height 64px
+		
+	&-btn-nav
+		display block
+		order 2
+		border 1px solid $menu_border
+		border-radius .4em
+		background-color $white
+		color $menu_color
+		padding 10px
+		margin .8em
+	
+	&-menu-navbar
+		background-color $white
+		
+	&-menu-list
+		list-style-type none
+		height 0px
+		overflow hidden
+		//transition height $transitionTime ease
+		
+		&--show
+			height 280px
+			padding 18px
+
+		&-item
+			margin 0 0 10px 0
+			a
+				background-color $menu_item_bckg
+				border-radius 3px
+				border 1px solid $menu_item_blue
+				color $menu_color
+				display block
+				height 30px
+				line-height 30px
+				padding .5rem
+				text-decoration none
+				text-align center
+				
+				&:hover
+					background-color rgba(242, 243, 247, 0.38)
+					color $menu_item_blue
+			
+@media (min-width: 768px)
+	.header
+		flex-direction row
+		flex-wrap wrap
+		justify-content space-between
+		height 80px
+		transition all $transitionTime ease
+		font-size 1.2em
+		overflow visible
+		
+		&-btn-nav
+			display none
+
+		&-logo
+			margin-left 2rem
+			order 1
+		
+		&-menu-navbar
+			order 2
+			display flex
+			align-items center
+		
+		&-menu-list
+			height 100%
+			margin-right 2rem
+			
+			&-item
+				display inline-block

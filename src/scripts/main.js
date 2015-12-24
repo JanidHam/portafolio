@@ -1,3 +1,9 @@
+import $ from 'jquery'
+
 (() => {
-	console.log('Hello world')
+	
+	$('#btnMenu').on('click', () => {
+		$('#navbarMenu').toggleClass('header-menu-list--show')
+	})
+
 }())
