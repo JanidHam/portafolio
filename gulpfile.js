@@ -32,7 +32,7 @@ var config = {
 }
 
 gulp.task('server', function () {
-	gulp.src('./build')
+	gulp.src('./')
 		.pipe(webserver({
 			host: '0.0.0.0',
 			port: 8080,
@@ -79,7 +79,7 @@ gulp.task('images', function () {
 })
 
 gulp.task('inline', function () {
-	gulp.src('./build/index.html')
+	gulp.src('./index.html')
 		.pipe(smoosher())
 		.pipe(gulp.dest('./dist/'))
 })
