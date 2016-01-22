@@ -27,7 +27,7 @@ var config = {
 	},
 	images: {
 		watch: ['./build/img/*.png', './build/img/*.jpg'], //Se llama en forma de arreglo porque se puede tener varios formatos de imagenes
-		output: './dist/img/'
+		output: './build/img/'
 	}
 }
 
