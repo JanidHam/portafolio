@@ -15,19 +15,19 @@ var config = {
 	styles: {
 		main: './src/styles/main.styl',
 		watch: './src/styles/**/*.styl',
-		output: './build/css/'
+		output: './css/'
 	},
 	html: {
-		watch: './src/*.html'
+		watch: './*.html'
 	},
 	scripts: {
 		main: './src/scripts/main.js',
 		watch: './src/scripts/**/*.js',
-		output: './build/js/'
+		output: './js/'
 	},
 	images: {
 		watch: ['./build/img/*.png', './build/img/*.jpg'], //Se llama en forma de arreglo porque se puede tener varios formatos de imagenes
-		output: './build/img/'
+		output: './img/'
 	}
 }
 
@@ -57,7 +57,7 @@ gulp.task('build:js', function () {
 		.bundle()
 		.pipe(source('bundle.js'))
 		.pipe(buffer())
-		//.pipe(uglify())
+		.pipe(uglify())
 		.pipe(gulp.dest(config.scripts.output))
 })
 
