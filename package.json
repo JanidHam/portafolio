@@ -4,7 +4,8 @@
   "description": "Website of JanidHam, this website is about me, my curriculim vitae and mys projects. ",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "cp -R ./build/css ./public  && cp -R ./build/img ./public && cp -R ./build/js ./public && cp ./build/index.html ./views"
   },
   "repository": {
     "type": "git",
@@ -39,6 +40,8 @@
     "vinyl-source-stream": "^1.1.0"
   },
   "dependencies": {
-    "jquery": "^2.1.4"
+    "express": "^4.13.4",
+    "jquery": "^2.1.4",
+    "swig": "^1.4.2"
   }
 }
