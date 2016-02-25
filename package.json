@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cp -R ./build/css ./public  && cp -R ./build/img ./public && cp -R ./build/js ./public && cp ./build/index.html ./views"
+    "build-public": "rm -R ./public && mkdir public",
+    "build": "npm run build-public && cp -R ./build/css ./public  && cp -R ./build/img ./public && cp -R ./build/js ./public && cp ./build/index.html ./views"
   },
   "repository": {
     "type": "git",
