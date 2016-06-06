@@ -26,7 +26,7 @@ var config = {
 		output: './build/js/'
 	},
 	images: {
-		watch: ['./build/img/*.png', './build/img/*.jpg'], //Se llama en forma de arreglo porque se puede tener varios formatos de imagenes
+		watch: ['./build/img/*.png', './build/img/*.jpg', './build/img/*.jpeg'], //Se llama en forma de arreglo porque se puede tener varios formatos de imagenes
 		output: './build/img/'
 	}
 }
@@ -57,7 +57,7 @@ gulp.task('build:js', function () {
 		.bundle()
 		.pipe(source('bundle.js'))
 		.pipe(buffer())
-		//.pipe(uglify())
+		.pipe(uglify())
 		.pipe(gulp.dest(config.scripts.output))
 })
 
