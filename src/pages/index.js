@@ -11,9 +11,9 @@ export default function Index() {
           <div className='container'>
             <div className='flex-column hi-container'>
               <span className='image-hi' />
-              <h3>Hi.</h3>
+              <h2>Hi.</h2>
               <p>
-                I&#39;m a web designer / developer based in Toronto, Canada.
+                I&#39;m a web designer / developer based in Mexico city.
                 I have a passion for web design and love to create for web and mobile devices.
               </p>
             </div>
@@ -25,7 +25,7 @@ export default function Index() {
             <div className='flex-column hi-container'>
               <h2>What I can do.</h2>
               <p>
-                I&#39;m a web designer / developer based in Toronto, Canada.
+                I&#39;m a web designer / developer based in Mexico city.
                 I have a passion for web design and love to create for web and mobile devices.
               </p>
             </div>
@@ -58,6 +58,10 @@ export default function Index() {
             background-color: white;
           }
 
+          #i-can-help {
+            padding-bottom: 4em;
+          }
+
           .hi-container {
             align-items: center;
           }
@@ -75,9 +79,9 @@ export default function Index() {
             text-align: center;
             display: block;
             position: relative;
-            background: #45b29a;
+            background: #4F7683;
             padding: .75em 2em;
-            color: #1b7f69;
+            color: #90D7EF;
             text-decoration: none;
             margin: 1.5em 0 0;
             border-radius: 3px;
