@@ -7,6 +7,18 @@ export default function Index() {
   return (
     <React.Fragment>
       <Layout title='Janid Ham'>
+        <section id='main-section'>
+          <div className='flex-column'>
+            <h2 style={{ textAlign: 'center', width: '100%' }}>
+              I&#39;m Janid.
+            </h2>
+            <p style={{ textAlign: 'center', width: '100%' }}>a full stack developer.</p>
+          </div>
+          <div className='wrap'>
+            <img src='/static/oie_transparent.png' alt='React native rocks!' />
+          </div>
+        </section>
+
         <section id='hi'>
           <div className='container'>
             <div className='flex-column hi-container'>
@@ -90,6 +102,16 @@ export default function Index() {
             font-weight: 400;
             border: 0;
             text-transform: uppercase;
+          }
+
+          .wrap {
+            margin: 0 auto;
+            max-width: 800px;
+            overflow: hidden;
+          }
+
+          .wrap img {
+            width: 100%;
           }
         `}
       </style>

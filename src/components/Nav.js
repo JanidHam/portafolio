@@ -29,7 +29,7 @@ export default function Header() {
                     </Link>
                   </li>
                   <li>
-                    <Link href='/'>
+                    <Link href='/work'>
                       <a>
                         Work
                       </a>
