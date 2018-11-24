@@ -50,7 +50,7 @@ export default class Layout extends React.Component {
         <style jsx>
           {`
             #top {
-              background-color: #90D7EF;
+              background-color: #EAF7FC;
               padding-top: 130px;
               overflow: hidden;
             }
@@ -62,7 +62,7 @@ export default class Layout extends React.Component {
             body {
               margin: 0;
               font-family: 'Montserrat', sans-serif;
-              background: #90D7EF;
+              background: #EAF7FC;
               font-size: 14px;
               line-heihgt: 1.42;
               color: #4F7683;
@@ -101,6 +101,10 @@ export default class Layout extends React.Component {
             .transition {
               -webkit-transition: all .5s ease-in-out;
               transition: all .5s ease-in-out;
+            }
+
+            img.img-circule {
+              border-radius: 50%;
             }
 
             @media (min-width: 992px) {

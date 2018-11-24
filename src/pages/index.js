@@ -9,10 +9,10 @@ export default function Index() {
       <Layout title='Janid Ham'>
         <section id='main-section'>
           <div className='flex-column'>
-            <h2 style={{ textAlign: 'center', width: '100%' }}>
+            <h2 style={{ textAlign: 'center', width: '100%', marginBottom: '0.2em' }}>
               I&#39;m Janid.
             </h2>
-            <p style={{ textAlign: 'center', width: '100%' }}>a full stack developer.</p>
+            <h3 style={{ textAlign: 'center', width: '100%' }}>A full stack developer.</h3>
           </div>
           <div className='wrap'>
             <img src='/static/oie_transparent.png' alt='React native rocks!' />
@@ -36,10 +36,44 @@ export default function Index() {
           <div className='container'>
             <div className='flex-column hi-container'>
               <h2>What I can do.</h2>
-              <p>
-                I&#39;m a web designer / developer based in Mexico city.
-                I have a passion for web design and love to create for web and mobile devices.
-              </p>
+              <div className='flex flex-column-mobile flex-can-do-container'>
+                <div className='can-do-img-container-left flex'>
+                  <span className='can-do-img avatar-img' />
+                  <span className='can-do-img nodejs-img skill-img can-do-img-min' />
+                </div>
+                <div className='position-2'>
+                  <p>
+                    I&#39;m a web designer / developer based in Mexico city.
+                    I have a passion for web design and love to create for web and mobile devices.
+                  </p>
+                </div>
+              </div>
+
+              <div className='flex flex-column-mobile flex-can-do-container'>
+                <div className='position-2'>
+                  <p>
+                    I&#39;m a web designer / developer based in Mexico city.
+                    I have a passion for web design and love to create for web and mobile devices.
+                  </p>
+                </div>
+                <div className='can-do-img-container-right flex'>
+                  <span className='can-do-img react-native-img skill-img can-do-img-min' />
+                  <span className='can-do-img avatar-img' />
+                </div>
+              </div>
+
+              <div className='flex flex-column-mobile flex-can-do-container'>
+                <div className='can-do-img-container-left flex'>
+                  <span className='can-do-img avatar-img' />
+                  <span className='can-do-img db-img skill-img can-do-img-min' />
+                </div>
+                <div className='position-2'>
+                  <p>
+                    I&#39;m a web designer / developer based in Mexico city.
+                    I have a passion for web design and love to create for web and mobile devices.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -78,6 +112,97 @@ export default function Index() {
             align-items: center;
           }
 
+          .flex-can-do-container {
+            justify-content: space-between;
+            padding-bottom: 1.5em;
+            width: 80%;
+          }
+
+          .flex-can-do-container div:first-child {
+            flex: 0.4;
+          }
+
+          .flex-can-do-container div:last-child {
+            flex: 0.5;
+          }
+
+          .can-do-img-container-left, .can-do-img-container-right {
+            align-items: center;
+            margin-right: 1.5em;
+            justify-content: space-between;
+            position: relative;
+          }
+
+          .can-do-img-container-left:before {
+            content: '';
+            position: absolute;
+            width: 40%;
+            height: 0;
+            line-height: 0;
+            border-bottom: 2px dotted #ddd;
+            display: flex;
+            top: 45%;
+            margin: 0 auto;
+            left: 40%;
+          }
+
+          .can-do-img-container-right:before {
+            content: '';
+            position: absolute;
+            width: 40%;
+            height: 0;
+            line-height: 0;
+            border-bottom: 2px dotted #ddd;
+            display: flex;
+            top: 45%;
+            margin: 0 auto;
+            right: 40%;
+          }
+
+          .can-do-img {
+            display: block;
+            height: 130px;
+            width: 130px;
+          }
+
+          .can-do-img-min {
+            height: 60px;
+            width: 60px;
+          }
+
+          .avatar-img {
+            background-image: url(/static/image.jpeg);
+            background-size: cover;
+            border-radius: 50%;
+          }
+
+          .skill-img {
+            background-size: contain;
+            background-repeat: no-repeat;
+          }
+
+          .nodejs-img {
+            background-image: url(/static/icon/nodejs-logo.svg);
+          }
+
+          .db-img {
+            background-image: url(/static/icon/db.svg);
+          }
+
+          .react-native-img {
+            background-image: url(/static/icon/react-native-logo.svg);
+            background-size: contain;
+            background-repeat: no-repeat;
+          }
+
+          .can-do-img img {
+            display: block;
+            height: 100%;
+            max-width: 120px;
+            margin: 0 auto;
+            width: 100%;
+          }
+
           span.image-hi {
             background-image: url(/static/image.jpeg);
             height: 150px;
@@ -87,20 +212,20 @@ export default function Index() {
           }
 
           .btn-hldr .main-btn {
+            border: 2px solid #4F7683;
             font-size: .8em;
             text-align: center;
             display: block;
             position: relative;
-            background: #4F7683;
+            background: white;
             padding: .75em 2em;
-            color: #90D7EF;
+            color: #4F7683;
             text-decoration: none;
             margin: 1.5em 0 0;
             border-radius: 3px;
             -webkit-border-radius: 3px;
             -moz-border-radius: 3px;
-            font-weight: 400;
-            border: 0;
+            font-weight: 600;
             text-transform: uppercase;
           }
 
@@ -112,6 +237,20 @@ export default function Index() {
 
           .wrap img {
             width: 100%;
+          }
+
+          @media (max-width: 992px) {
+            .flex-column-mobile {
+              flex-direction: column !important;
+            }
+
+            .can-do-img-container-left, .can-do-img-container-right {
+              order: 1;
+            }
+
+            .position-2 {
+              order: 2;
+            }
           }
         `}
       </style>

@@ -36,9 +36,9 @@ export default function Header() {
                     </Link>
                   </li>
                   <li>
-                    <Link href='/'>
+                    <Link href='/blog'>
                       <a>
-                        Notes
+                        Blog
                       </a>
                     </Link>
                   </li>
@@ -53,7 +53,7 @@ export default function Header() {
         {`
           #nav-bar {
             color: #fff;
-            background: #90D7EF;
+            background: #EAF7FC;
             box-shadow: none;
             transition: all .8s;
             padding: 1em 0;
@@ -111,7 +111,7 @@ export default function Header() {
           .nav-list li a {
             display: inline-block;
             text-decoration: none;
-            color: #D6F0F9;
+            color: rgba(79, 118, 131, 0.5098039215686274);
             font-weight: 400;
             margin: 0 0 0 1em;
             font-size: 130%;
