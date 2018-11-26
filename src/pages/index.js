@@ -6,7 +6,7 @@ import { Layout } from '../components'
 export default function Index() {
   return (
     <React.Fragment>
-      <Layout title='Janid Ham'>
+      <Layout title='Janid Ham' urlActive='about'>
         <section id='main-section'>
           <div className='flex-column'>
             <h2 style={{ textAlign: 'center', width: '100%', marginBottom: '0.2em' }}>
@@ -25,8 +25,10 @@ export default function Index() {
               <span className='image-hi' />
               <h2>Hi.</h2>
               <p>
-                I&#39;m a web designer / developer based in Mexico city.
-                I have a passion for web design and love to create for web and mobile devices.
+                Im a fullstack developer and Javascript/Node.js enthusiast based in Mexico city.
+              </p>
+              <p>
+                I have a passion for create web and mobile aplications based on Javascript.
               </p>
             </div>
           </div>
@@ -42,18 +44,21 @@ export default function Index() {
                   <span className='can-do-img nodejs-img skill-img can-do-img-min' />
                 </div>
                 <div className='position-2'>
+                  <h3>Develop what you want</h3>
                   <p>
-                    I&#39;m a web designer / developer based in Mexico city.
-                    I have a passion for web design and love to create for web and mobile devices.
+                    I love code with Node.js in the backend,
+                    and sometimes work with Python (Django, Flask).
+                    For frontend React.js and Vue.js rocks, but also can work with Angular.
                   </p>
                 </div>
               </div>
 
               <div className='flex flex-column-mobile flex-can-do-container'>
                 <div className='position-2'>
+                  <h3>Natives apps</h3>
                   <p>
-                    I&#39;m a web designer / developer based in Mexico city.
-                    I have a passion for web design and love to create for web and mobile devices.
+                    For native apps I use React Native, is pretty awesome.
+                    Also I know Java for build Android apps.
                   </p>
                 </div>
                 <div className='can-do-img-container-right flex'>
@@ -68,9 +73,10 @@ export default function Index() {
                   <span className='can-do-img db-img skill-img can-do-img-min' />
                 </div>
                 <div className='position-2'>
+                  <h3>SQL/NoSQL</h3>
                   <p>
-                    I&#39;m a web designer / developer based in Mexico city.
-                    I have a passion for web design and love to create for web and mobile devices.
+                    For SQL databases MySQL is my choose.
+                    For NoSQL databases I work with MongoDB, RethinkDB and Redis.
                   </p>
                 </div>
               </div>
@@ -108,6 +114,19 @@ export default function Index() {
             padding-bottom: 4em;
           }
 
+          #i-can-help h2 {
+            margin-bottom: 0.5em;
+          }
+
+          #i-can-help h3 {
+            margin-top: 0;
+            margin-bottom: 1em;
+          }
+
+          .hi-container p {
+            margin: 0.1em 0;
+          }
+
           .hi-container {
             align-items: center;
           }
@@ -115,6 +134,7 @@ export default function Index() {
           .flex-can-do-container {
             justify-content: space-between;
             padding-bottom: 1.5em;
+            margin-bottom: 1.5em;
             width: 80%;
           }
 
@@ -124,6 +144,18 @@ export default function Index() {
 
           .flex-can-do-container div:last-child {
             flex: 0.5;
+          }
+
+          .position-2 h3 {
+            margin: 0 0 1em 0;
+            text-align: left;
+          }
+
+          .position-2 p {
+            color: rgba(79, 118, 131, 0.8098039215686274);
+            line-height: 1.3em;
+            font-size: 1.2em;
+            text-align: justify;
           }
 
           .can-do-img-container-left, .can-do-img-container-right {
@@ -204,7 +236,7 @@ export default function Index() {
           }
 
           span.image-hi {
-            background-image: url(/static/image.jpeg);
+            background-image: url(/static/me.jpg);
             height: 150px;
             width: 150px;
             background-size: cover;
@@ -250,6 +282,10 @@ export default function Index() {
 
             .position-2 {
               order: 2;
+            }
+
+            .position-2 h3 {
+              margin: 1em 0;
             }
           }
         `}

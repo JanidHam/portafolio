@@ -1,7 +1,9 @@
 import * as React from 'react'
 import Link from 'next/link'
 
-export default function Header() {
+export default function Header(props) {
+  const { urlActive } = props
+  console.log(urlActive)
   return (
     <React.Fragment>
       <header id='nav-bar'>
@@ -23,14 +25,14 @@ export default function Header() {
                 <ul className='nav-list transition'>
                   <li>
                     <Link href='/'>
-                      <a className='active'>
+                      <a className={ urlActive === 'about' ? 'active' : '' }>
                         About
                       </a>
                     </Link>
                   </li>
                   <li>
                     <Link href='/work'>
-                      <a>
+                      <a className={ urlActive === 'work' ? 'active' : '' }>
                         Work
                       </a>
                     </Link>
@@ -65,6 +67,7 @@ export default function Header() {
 
           #nav-bar.nav-shadow {
             box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.08);
+            background: white;
           }
 
           .flex {

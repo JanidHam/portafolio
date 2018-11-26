@@ -27,7 +27,7 @@ export default class Layout extends React.Component {
   }
 
   render() {
-    const { children, title } = this.props
+    const { children, title, urlActive } = this.props
 
     return (
       <React.Fragment>
@@ -40,7 +40,7 @@ export default class Layout extends React.Component {
         </Head>
 
         <section id='top'>
-          <Header />
+          <Header urlActive={urlActive} />
         </section>
 
         { children }
