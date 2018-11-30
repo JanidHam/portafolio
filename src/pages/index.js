@@ -46,7 +46,7 @@ export default function Index() {
                 <div className='position-2'>
                   <h3>Develop what you want</h3>
                   <p>
-                    I love code with Node.js in the backend,
+                    I love write code in Node.js in the backend,
                     and sometimes work with Python (Django, Flask).
                     For frontend React.js and Vue.js rocks, but also can work with Angular.
                   </p>
@@ -211,6 +211,8 @@ export default function Index() {
           .skill-img {
             background-size: contain;
             background-repeat: no-repeat;
+            background-color: white;
+            z-index: 1;
           }
 
           .nodejs-img {

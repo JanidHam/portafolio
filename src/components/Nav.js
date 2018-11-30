@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export default function Header(props) {
   const { urlActive } = props
-  console.log(urlActive)
+
   return (
     <React.Fragment>
       <header id='nav-bar'>
