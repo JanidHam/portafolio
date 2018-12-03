@@ -10,24 +10,31 @@ services:
       - .:/usr/src
       - /usr/src/node_modules
     ports:
-      - "3000:3000"
+      - "3000"
     networks:
       - proxy
+      - default
     labels:
       - "traefik.frontend.rule=Host:www.janidham.com,janidham.com"
-      - "traefik.port=3000"
+      - "traefik.docker.network=proxy"
+      - "traefik.enable=true"
+      - "traefik.basic.port=3000"
+      - "traefik.basic.protocol=http"
+      - "traefik.admin.protocol=https"
+
   # The reverse proxy service (Traefik)
-  reverse-proxy:
-    image: traefik  # The official Traefik docker image
-    command: --api --docker --docker.domain=janidham.com --docker.watch  # Enables the web UI and tells Traefik to listen to docker
-    ports:
-      - "80:80"      # The HTTP port
-      - "8080:8080"  # The Web UI (enabled by --api)
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock  # So that Traefik can listen to the Docker events
-    restart: always
-    networks:
-      - proxy
+  # reverse-proxy:
+  #   image: traefik  # The official Traefik docker image
+  #   command: --api --docker --docker.domain=janidham.com --docker.watch  # Enables the web UI and tells Traefik to listen to docker
+  #   ports:
+  #     - "80:80"      # The HTTP port
+  #     - "8080:8080"  # The Web UI (enabled by --api)
+  #   volumes:
+  #     - /var/run/docker.sock:/var/run/docker.sock  # So that Traefik can listen to the Docker events
+  #   restart: always
+  #   networks:
+  #     - proxy
 
 networks:
   proxy:
+    external: true
