@@ -15,12 +15,27 @@ services:
       - proxy
       - default
     labels:
-      - "traefik.frontend.rule=Host:www.janidham.com,janidham.com"
+      - "traefik.frontend.rule=Host:janidham.com"
       - "traefik.docker.network=proxy"
       - "traefik.enable=true"
       - "traefik.basic.port=3000"
       - "traefik.basic.protocol=http"
       - "traefik.admin.protocol=https"
+  traefik:
+    container_name: traefik
+    image: traefik:1.5.4
+    restart: always
+    ports:
+      - 80:80
+      - 443:443
+      - "8080:8080" # The Web UI (enabled by --api)
+    networks:
+      - proxy
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./traefik/traefik.toml:/traefik.toml
+      - ./traefik/acme.json:/acme.json
+    command: --api --docker --docker.domain=janidham.com --docker.watch
 
   # The reverse proxy service (Traefik)
   # reverse-proxy:
