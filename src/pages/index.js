@@ -270,7 +270,10 @@ export default function Index() {
           }
 
           .wrap img {
-            width: 100%;
+            display: block;
+            height: 250px;
+            margin: 0 auto;
+            padding: 4em 0;
           }
 
           @media (max-width: 992px) {

@@ -51,7 +51,7 @@ export default class Layout extends React.Component {
           {`
             #top {
               background-color: #EAF7FC;
-              padding-top: 130px;
+              padding-top: 100px;
               overflow: hidden;
             }
           `}
