@@ -25,14 +25,14 @@ LABEL name="Website of JanidHam, this website is about me, my curriculim vitae a
 LABEL maintainer="janid.ham20@gmail.com"
 LABEL version="1.0"
 
-COPY ./package*.json /usr/src/
+COPY ./package*.json /usr/app/
 
-WORKDIR /usr/src
+WORKDIR /usr/app
 
 RUN npm install --only=production
 
-COPY --from=builder ["/usr/src/server.js", "/usr/src/src"]
-COPY --from=builder ["/usr/src/src", "/usr/src/src"]
+COPY --from=builder ["/usr/src/server.js", "/usr/app"]
+COPY --from=builder ["/usr/src/src", "/usr/app/src"]
 
 EXPOSE 3000
 
