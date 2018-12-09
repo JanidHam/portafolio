@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+  traefik:
+    image: traefik:v1.7.5-alpine
+    ports:
+      - "80:80"
+      - "8080:8080"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./traefik/traefik.toml:/etc/traefik/traefik.toml:ro
+      - ./traefik/acme:/etc/traefik/acme
+      - ./traefik/.htpasswd:/etc/traefik/.htpasswd
+
+  website:
+    container_name: website
+    build:
+      context: .
+      dockerfile: .docker/app.prod.dockerfile
+    volumes:
+      - .:/usr/src
+      - /usr/src/node_modules
+    ports:
+      - "3000:3000"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.backend=website"
+      - "traefik.frontend.rule=Host:janidham.com"

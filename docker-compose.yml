@@ -1,56 +1,27 @@
 version: "3"
 
 services:
-  # website:
-  #   container_name: website-dev
-  #   build:
-  #     context: .
-  #     dockerfile: .docker/app.dev.dockerfile
-  #   volumes:
-  #     - .:/usr/src
-  #     - /usr/src/node_modules
-  #   ports:
-  #     - "3000:3000"
-  #   networks:
-  #     - proxy
-  #     - default
-  #   labels:
-  #     - "traefik.frontend.rule=Host:janidham.com"
-  #     - "traefik.docker.network=proxy"
-  #     - "traefik.enable=true"
-  #     - "traefik.basic.port=3000"
-  #     - "traefik.basic.protocol=http"
-  #     - "traefik.admin.protocol=https"
   traefik:
-    container_name: traefik
-    image: traefik:1.3.6-alpine
+    image: traefik:v1.7.5-alpine
+    command: --web --docker --docker.domain=docker.localhost --logLevel=DEBUG
     ports:
-      - 80:80
-      - 443:443
+      - "80:80"
+      - "8080:8080"
+      - "443:443"
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock  # So that Traefik can listen to the Docker events
-      - ./traefik/traefik.toml:/traefik.toml
-      - ./traefik/acme.json:/acme.json
-    networks:
-      - proxy
-    command: --docker
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /dev/null:/traefik.toml
+
+  website:
+    container_name: website-dev
+    build:
+      context: .
+      dockerfile: .docker/app.dev.dockerfile
+    volumes:
+      - .:/usr/src
+      - /usr/src/node_modules
+    ports:
+      - "3000:3000"
     labels:
-      - "traefik.frontend.rule=Host:monitor.janidham.com"
-      - "traefik.basic.port=8080"
-
-  # The reverse proxy service (Traefik)
-  # reverse-proxy:
-  #   image: traefik  # The official Traefik docker image
-  #   command: --api --docker --docker.domain=janidham.com --docker.watch  # Enables the web UI and tells Traefik to listen to docker
-  #   ports:
-  #     - "80:80"      # The HTTP port
-  #     - "8080:8080"  # The Web UI (enabled by --api)
-  #   volumes:
-  #     - /var/run/docker.sock:/var/run/docker.sock  # So that Traefik can listen to the Docker events
-  #   restart: always
-  #   networks:
-  #     - proxy
-
-networks:
-  proxy:
-    external: true
+      - "traefik.backend=app-be"
+      - "traefik.frontend.rule=Host:app.localhost"

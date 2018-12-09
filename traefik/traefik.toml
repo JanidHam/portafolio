@@ -1,28 +1,42 @@
-defaultEntryPoints = ["http", "https"]
+debug = false
 
-[web]
-address = ":8080"
-  [web.auth.basic]
-  users = ["admin:$apr1$2e89n0qY$gnJAZFCnxnhfsqfngHKwT/"]
+logLevel = "ERROR"
+defaultEntryPoints = ["https","http"]
 
 [entryPoints]
   [entryPoints.http]
   address = ":80"
     [entryPoints.http.redirect]
-      entryPoint = "https"
+    entryPoint = "https"
   [entryPoints.https]
   address = ":443"
-    [entryPoints.https.tls]
+  [entryPoints.https.tls]
+
+  [entryPoints.dashboard]
+    address=":8080"
+    [entryPoints.dashboard.auth]
+      [entryPoints.dashboard.auth.basic]
+        usersFile = "/etc/traefik/.htpasswd"
+
+[api]
+entrypoint = "dashboard"
+
+[retry]
+
+[docker]
+endpoint = "unix:///var/run/docker.sock"
+domain = "janidham.com"
+watch = true
+exposedByDefault = false
 
 [acme]
 email = "janid.ham20@gmail.com"
-storage = "acme.json"
+storage = "/etc/traefik/acme/acme.json"
+caServer = "https://acme-staging-v02.api.letsencrypt.org/directory"
 entryPoint = "https"
-onHostRule = true
-onDemand = false
   [acme.httpChallenge]
-    entryPoint = "http"
+  entryPoint = "http"
 
-[acme.dnsChallenge]
-  provider = "digitalocean"
-  delayBeforeCheck = 0
+  [[acme.domains]]
+    main = "janidham.com"
+    sans = ["monitor.janidham.com"]
