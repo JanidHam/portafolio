@@ -11,39 +11,39 @@ services:
       - /usr/src/node_modules
     ports:
       - "3000:3000"
-    # networks:
-    #   - proxy
-    #   - default
-    # labels:
-    #   - "traefik.frontend.rule=Host:janidham.com"
-    #   - "traefik.docker.network=proxy"
-    #   - "traefik.enable=true"
-    #   - "traefik.basic.port=3000"
-    #   - "traefik.basic.protocol=http"
-    #   - "traefik.admin.protocol=https"
-  # traefik:
-  #   container_name: traefik
-  #   image: traefik:1.5.4
-  #   restart: always
-  #   ports:
-  #     - 80:80
-  #     - 443:443
-  #     - "8080:8080" # The Web UI (enabled by --api)
-  #   networks:
-  #     - proxy
-  #   env_file: .env
-  #   volumes:
-  #     - /var/run/docker.sock:/var/run/docker.sock
-  #     - ./traefik/traefik.toml:/traefik.toml
-  #     - ./docker/traefik:/etc/traefik/
-  #     # - ./traefik/acme.json:/acme.json
-  #   command: --api --acme.storage=/etc/traefik/acme.json --logLevel=info \
-  #     ${TRAEFIK_ENTRYPOINT_HTTP} ${TRAEFIK_ENTRYPOINT_HTTPS}\
-  #     --defaultentrypoints=${TRAEFIK_DEFAULT_ENTRYPOINTS} \
-  #             --acme=${ACME_ENABLE} --acme.entrypoint=https --acme.httpchallenge --acme.httpchallenge.entrypoint=http \
-  #     --acme.domains="${ACME_DOMAINS}" --acme.email="${ACME_EMAIL}" \
-  #     --docker --docker.domain="${DOCKER_DOMAIN}" --docker.endpoint="unix:///var/run/docker.sock" \
-  #     --docker.watch=true --docker.exposedbydefault="false"
+    networks:
+      - proxy
+      - default
+    labels:
+      - "traefik.frontend.rule=Host:janidham.com"
+      - "traefik.docker.network=proxy"
+      - "traefik.enable=true"
+      - "traefik.basic.port=3000"
+      - "traefik.basic.protocol=http"
+      - "traefik.admin.protocol=https"
+  traefik:
+    container_name: traefik
+    image: traefik:1.5.4
+    restart: always
+    ports:
+      - 80:80
+      - 443:443
+      - 8080:8080 # The Web UI (enabled by --api)
+    networks:
+      - proxy
+    env_file: .env
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./traefik/traefik.toml:/traefik.toml
+      - ./docker/traefik:/etc/traefik/
+      # - ./traefik/acme.json:/acme.json
+    command: --api --acme.storage=/etc/traefik/acme.json --logLevel=info \
+      ${TRAEFIK_ENTRYPOINT_HTTP} ${TRAEFIK_ENTRYPOINT_HTTPS}\
+      --defaultentrypoints=${TRAEFIK_DEFAULT_ENTRYPOINTS} \
+              --acme=${ACME_ENABLE} --acme.entrypoint=https --acme.httpchallenge --acme.httpchallenge.entrypoint=http \
+      --acme.domains="${ACME_DOMAINS}" --acme.email="${ACME_EMAIL}" \
+      --docker --docker.domain="${DOCKER_DOMAIN}" --docker.endpoint="unix:///var/run/docker.sock" \
+      --docker.watch=true --docker.exposedbydefault="false"
 
   # The reverse proxy service (Traefik)
   # reverse-proxy:
@@ -58,6 +58,6 @@ services:
   #   networks:
   #     - proxy
 
-# networks:
-#   proxy:
-#     external: true
+networks:
+  proxy:
+    external: true
