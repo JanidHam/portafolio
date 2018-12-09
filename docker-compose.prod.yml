@@ -20,8 +20,6 @@ services:
     volumes:
       - .:/usr/src
       - /usr/src/node_modules
-    ports:
-      - "3000:3000"
     labels:
       - "traefik.enable=true"
       - "traefik.backend=website"
