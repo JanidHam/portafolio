@@ -23,4 +23,4 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.backend=website"
-      - "traefik.frontend.rule=Host:janidham.com"
+      - "traefik.frontend.rule=Host:janidham.com,www.janidham.com"

@@ -35,4 +35,4 @@ entryPoint = "https"
 
   [[acme.domains]]
     main = "janidham.com"
-    sans = ["monitor.janidham.com"]
+    sans = ["www.janidham.com", "monitor.janidham.com"]
