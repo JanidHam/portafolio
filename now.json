@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "alias": "janidham.com",
+  "builds": [
+    { "src": "package.json", "use": "@now/static-build" }
+  ]
+}
