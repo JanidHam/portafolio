@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "node server.js",
     "build": "next build src",
-    "export": "next export src",
+    "export": "next export src -o dist",
     "static": "npm run build && npm run export",
     "now-build": "npm run static",
     "start": "NODE_ENV=production node server.js"
