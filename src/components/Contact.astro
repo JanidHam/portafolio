@@ -1,0 +1,140 @@
+---
+const links = [
+  {
+    label: "janid.ham20@gmail.com",
+    href: "mailto:janid.ham20@gmail.com",
+    eyebrow: "email",
+  },
+  {
+    label: "github.com/JanidHam",
+    href: "https://github.com/JanidHam",
+    eyebrow: "github",
+  },
+  {
+    label: "linkedin.com/in/janidham",
+    href: "https://www.linkedin.com/in/janidham/",
+    eyebrow: "linkedin",
+  },
+];
+---
+
+<section class="contact" id="contact">
+  <div class="inner">
+    <p class="label">// contact</p>
+    <p class="desc">
+      Open to remote full stack roles and interesting projects.
+      Best way to reach me is email.
+    </p>
+    <div class="links">
+      {links.map(link => (
+        <a href={link.href} target={link.href.startsWith("mailto") ? undefined : "_blank"} rel="noopener" class="link-card">
+          <span class="link-eyebrow">{link.eyebrow}</span>
+          <span class="link-label">{link.label}</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <span class="footer-text">janidham.com</span>
+    <span class="footer-text">Mexico City, MX</span>
+  </div>
+</footer>
+
+<style>
+  .contact {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+  }
+
+  .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent-green);
+    letter-spacing: 3px;
+    margin-bottom: 1.5rem;
+  }
+
+  .desc {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    max-width: 480px;
+    margin-bottom: 2rem;
+  }
+
+  .links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 480px;
+  }
+
+  .link-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.875rem 1.25rem;
+    text-decoration: none;
+    transition: border-color 0.15s;
+  }
+
+  .link-card:hover {
+    border-color: var(--accent-blue);
+  }
+
+  .link-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--accent-green);
+    letter-spacing: 2px;
+    width: 60px;
+    flex-shrink: 0;
+  }
+
+  .link-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--text-secondary);
+    transition: color 0.15s;
+  }
+
+  .link-card:hover .link-label {
+    color: var(--accent-blue);
+  }
+
+  .footer {
+    border-top: 1px solid var(--border);
+  }
+
+  .footer-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-text {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 640px) {
+    .links {
+      max-width: 100%;
+    }
+  }
+</style>

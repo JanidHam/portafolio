@@ -1,0 +1,117 @@
+---
+const stack = [
+  {
+    label: "FRONTEND",
+    items: ["React", "TypeScript", "Vue", "TailwindCSS", "SCSS"],
+  },
+  {
+    label: "BACKEND",
+    items: ["Node.js", "Laravel", "Python", "REST APIs", "Serverless"],
+  },
+  {
+    label: "MOBILE",
+    items: ["React Native", "iOS", "Android", "App Store", "Play Store"],
+  },
+  {
+    label: "DATABASE",
+    items: ["PostgreSQL", "MySQL", "MongoDB", "Redis", "RethinkDB"],
+  },
+  {
+    label: "CLOUD & DEVOPS",
+    items: ["AWS", "Google Cloud", "Docker", "GitHub Actions", "CI/CD"],
+  },
+  {
+    label: "AI & TOOLING",
+    items: ["Claude SDD", "CodeRabbit", "Prompt Engineering", "Token Optimization"],
+  },
+];
+---
+
+<section class="stack" id="stack">
+  <div class="inner">
+    <p class="label">// stack</p>
+    <div class="grid">
+      {stack.map(category => (
+        <div class="card">
+          <p class="card-label">{category.label}</p>
+          <ul class="items" role="list">
+            {category.items.map(item => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .stack {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+  }
+
+  .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent-green);
+    letter-spacing: 3px;
+    margin-bottom: 1.5rem;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    transition: border-color 0.15s;
+  }
+
+  .card:hover {
+    border-color: var(--border-hover);
+  }
+
+  .card-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--accent-green);
+    letter-spacing: 2px;
+    margin-bottom: 0.75rem;
+  }
+
+  .items {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .items li {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

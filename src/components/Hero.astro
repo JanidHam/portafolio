@@ -1,0 +1,130 @@
+---
+const badges = [
+  { label: "Node.js", color: "green" },
+  { label: "TypeScript", color: "blue" },
+  { label: "React", color: "blue" },
+  { label: "React Native", color: "blue" },
+  { label: "PostgreSQL", color: "blue" },
+  { label: "AWS", color: "amber" },
+  { label: "Docker", color: "blue" },
+  { label: "Claude SDD", color: "purple" },
+];
+---
+
+<section class="hero" id="about">
+  <p class="eyebrow">// available for new opportunities</p>
+  <h1 class="name">Janid Ham</h1>
+  <p class="title">Senior Full Stack Developer</p>
+  <p class="desc">
+    9+ years building scalable web and mobile applications. Node.js, TypeScript, React, PostgreSQL.
+    Currently leading AI developer tooling at PeopleCor.
+  </p>
+  <div class="cta">
+    <a href="#projects" class="btn-primary">View my work</a>
+    <a href="/resume.pdf" class="btn-secondary" target="_blank" rel="noopener">Download resume</a>
+  </div>
+  <div class="badges">
+    {badges.map(b => (
+      <span class={`badge badge-${b.color}`}>{b.label}</span>
+    ))}
+  </div>
+</section>
+
+<style>
+  .hero {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem 3rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent-green);
+    letter-spacing: 3px;
+    margin-bottom: 1.25rem;
+  }
+
+  .name {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+  }
+
+  .title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+    color: var(--accent-blue);
+    letter-spacing: 1px;
+    margin-bottom: 1.25rem;
+  }
+
+  .desc {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    max-width: 540px;
+    margin-bottom: 2rem;
+  }
+
+  .cta {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+
+  .btn-primary {
+    background: #238636;
+    color: #fff;
+    padding: 9px 20px;
+    border-radius: 6px;
+    font-size: 13px;
+    text-decoration: none;
+    transition: background 0.15s;
+  }
+
+  .btn-primary:hover {
+    background: #2ea043;
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+    padding: 9px 20px;
+    border-radius: 6px;
+    font-size: 13px;
+    text-decoration: none;
+    transition: border-color 0.15s, color 0.15s;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--accent-blue);
+    color: var(--accent-blue);
+  }
+
+  .badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+  }
+
+  .badge-green { color: var(--accent-green); }
+  .badge-blue  { color: var(--accent-blue); }
+  .badge-purple { color: var(--accent-purple); }
+  .badge-amber { color: var(--accent-amber); }
+</style>

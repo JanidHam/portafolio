@@ -1,0 +1,267 @@
+---
+const experience = [
+  {
+    company: "PeopleCor",
+    role: "Senior Full Stack Developer",
+    period: "Mar 2022 – Present",
+    stack: "React, TypeScript, Node.js, Laravel, PostgreSQL, Google Cloud",
+    highlights: [
+      "Own end-to-end development of core platform features using React (TypeScript) and Node.js/Laravel.",
+      "Reduced page load times by up to 60% through frontend optimization, code splitting, and caching strategies.",
+      "Architected and maintain the team's AI development system using Claude SDD: authoring and iterating on instructions, skills, commands, and prompts optimized for token efficiency and context management.",
+      "Implemented CodeRabbit for automated PR reviews, standardizing code quality and reducing manual review overhead.",
+      "Designed and optimized PostgreSQL schemas and queries for performance-critical, high-traffic features.",
+      "Built and maintained CI/CD pipelines with GitHub Actions, improving deployment reliability and speed.",
+    ],
+    current: true,
+  },
+  {
+    company: "TheGeekChronicles",
+    role: "Senior Full Stack Developer",
+    period: "2021 – 2022",
+    stack: "React Native, TypeScript, Node.js, Python, AWS EC2, PostgreSQL",
+    highlights: [
+      "Designed and shipped a cross-platform mobile app (iOS and Android) using React Native and TypeScript from scratch.",
+      "Built and deployed RESTful backend services on AWS EC2 with load balancers.",
+      "Integrated AI-driven workflows for content enrichment, classification, and automated publishing.",
+    ],
+    current: false,
+  },
+  {
+    company: "FounderWorkshop",
+    role: "Full Stack Developer",
+    period: "Nov 2019 – Mar 2022",
+    stack: "React, TypeScript, Node.js, AWS Lambda, PostgreSQL, Bitbucket Pipelines",
+    highlights: [
+      "Built scalable SPAs for multiple B2B products: Lookingglass, AskGenius, and Catholic Social Media.",
+      "Developed serverless REST APIs with Node.js on AWS Lambda.",
+      "Automated deployment workflows with Bitbucket Pipelines.",
+    ],
+    current: false,
+  },
+  {
+    company: "Amarentas",
+    role: "Lead Developer",
+    period: "Sep 2018 – Nov 2019",
+    stack: "React, TypeScript, Node.js, React Native, AWS, Docker, PostgreSQL",
+    highlights: [
+      "Led frontend and backend development for a web and mobile product shipped to App Store and Google Play.",
+      "Containerized application stack with Docker on AWS.",
+      "Migrated legacy database to PostgreSQL, improving query performance and reliability.",
+    ],
+    current: false,
+  },
+  {
+    company: "Areté",
+    role: "Full Stack Developer",
+    period: "Aug 2016 – Sep 2018",
+    stack: "Angular, Java, AWS, MySQL, PostgreSQL",
+    highlights: [
+      "Developed ARMS (Areté Routing Management System) full-stack using Angular and Java.",
+      "Led migration of performance-critical modules from MySQL to PostgreSQL.",
+    ],
+    current: false,
+  },
+  {
+    company: "Earlier roles",
+    role: "Software Developer",
+    period: "2014 – 2016",
+    stack: "Python, Django, Node.js, Android, .NET, MySQL",
+    highlights: [
+      "Built and shipped Android and iOS apps to Google Play and App Store.",
+      "Developed desktop and web applications using .NET and Python/Django.",
+    ],
+    current: false,
+  },
+];
+---
+
+<section class="experience" id="experience">
+  <div class="inner">
+    <p class="label">// experience</p>
+    <div class="timeline">
+      {experience.map((job, i) => (
+        <div class="item">
+          <div class="dot-col">
+            <div class={`dot ${job.current ? "dot-current" : ""}`}></div>
+            {i < experience.length - 1 && <div class="line"></div>}
+          </div>
+          <div class="body">
+            <div class="job-header">
+              <div>
+                <p class="company">{job.company}</p>
+                <p class="role">{job.role}</p>
+              </div>
+              <div class="right">
+                <p class="period">{job.period}</p>
+                {job.current && <span class="current-badge">current</span>}
+              </div>
+            </div>
+            <p class="stack">{job.stack}</p>
+            <ul class="highlights" role="list">
+              {job.highlights.map(h => (
+                <li>{h}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .experience {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+  }
+
+  .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent-green);
+    letter-spacing: 3px;
+    margin-bottom: 1.5rem;
+  }
+
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .item {
+    display: flex;
+    gap: 1.25rem;
+  }
+
+  .dot-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    padding-top: 4px;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--text-muted);
+    flex-shrink: 0;
+    border: 1px solid var(--border);
+  }
+
+  .dot-current {
+    background: var(--accent-green);
+    border-color: var(--accent-green);
+  }
+
+  .line {
+    width: 1px;
+    flex: 1;
+    background: var(--border);
+    margin: 4px 0;
+    min-height: 1.5rem;
+  }
+
+  .body {
+    padding-bottom: 2rem;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .company {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--accent-blue);
+    margin-bottom: 2px;
+  }
+
+  .role {
+    font-size: 13px;
+    color: var(--text-primary);
+  }
+
+  .right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+
+  .period {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+
+  .current-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--accent-green);
+    background: #3FB95015;
+    border: 1px solid #3FB95030;
+    padding: 2px 8px;
+    border-radius: 20px;
+  }
+
+  .stack {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+  }
+
+  .highlights {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .highlights li {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    padding-left: 1rem;
+    position: relative;
+  }
+
+  .highlights li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: var(--accent-green);
+    font-size: 10px;
+    top: 3px;
+  }
+
+  @media (max-width: 640px) {
+    .job-header {
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .right {
+      align-items: flex-start;
+    }
+  }
+</style>

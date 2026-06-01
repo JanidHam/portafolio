@@ -1,0 +1,107 @@
+---
+---
+
+<section class="about" id="about-section">
+  <div class="inner">
+    <p class="label">// about</p>
+    <div class="content">
+      <p>
+        I build <span class="highlight">full stack products</span> that scale, from architecture to deployment.
+        I've shipped web apps, mobile apps (iOS and Android), and serverless APIs across startups and product teams.
+      </p>
+      <p>
+        Right now I'm at <span class="highlight">PeopleCor</span>, where I own core platform features and lead our
+        <span class="highlight">AI developer tooling</span> initiative using Claude SDD and CodeRabbit.
+      </p>
+      <p>
+        Based in <span class="highlight">Mexico City</span>. Open to remote opportunities worldwide.
+      </p>
+    </div>
+    <div class="meta">
+      <div class="meta-item">
+        <span class="meta-value">9+</span>
+        <span class="meta-label">years experience</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-value">10+</span>
+        <span class="meta-label">products shipped</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-value">iOS + Android</span>
+        <span class="meta-label">mobile apps published</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+  }
+
+  .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent-green);
+    letter-spacing: 3px;
+    margin-bottom: 1.5rem;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 620px;
+    margin-bottom: 2.5rem;
+  }
+
+  .content p {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+  }
+
+  .highlight {
+    color: var(--text-primary);
+  }
+
+  .meta {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .meta-item {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .meta-value {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--accent-blue);
+  }
+
+  .meta-label {
+    font-size: 12px;
+    color: var(--text-secondary);
+  }
+
+  @media (max-width: 640px) {
+    .meta {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

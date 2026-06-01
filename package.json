@@ -1,47 +1,19 @@
 {
   "name": "portafolio",
-  "version": "1.0.0",
-  "description": "Website of JanidHam, this website is about me, my curriculim vitae and mys projects. ",
-  "main": "index.js",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build-public": "rm -R ./public && mkdir public",
-    "build": "npm run build-public && cp -R ./build/css ./public  && cp -R ./build/img ./public && cp -R ./build/js ./public && cp ./build/index.html ./views"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/JanidHam/portafolio.git"
-  },
-  "keywords": [
-    "html5",
-    "javascript",
-    "css3",
-    "stylus",
-    "gulp",
-    "es6"
-  ],
-  "author": " <JanidHam>",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/JanidHam/portafolio/issues"
-  },
-  "homepage": "https://github.com/JanidHam/portafolio",
-  "devDependencies": {
-    "babelify": "^6.1.3",
-    "browserify": "^10.2.6",
-    "gulp": "^3.9.0",
-    "gulp-image-optimization": "^0.1.3",
-    "gulp-minify-css": "^1.2.1",
-    "gulp-smoosher": "0.0.8",
-    "gulp-stylus": "^2.1.0",
-    "gulp-uglify": "^1.5.1",
-    "gulp-webserver": "^0.9.1",
-    "nib": "^1.1.0",
-    "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "dependencies": {
-    "express": "^4.13.4",
-    "swig": "^1.4.2"
+    "@tailwindcss/vite": "^4.3.0",
+    "astro": "^6.4.2",
+    "tailwindcss": "^4.3.0"
   }
 }
